@@ -1,0 +1,16 @@
+{
+  "name": "learning",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Um pacote feito durante o aprendizado do curso Full-Stack Web Developer.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Arthur Guilherme",
+  "license": "ISC",
+  "dependencies": {
+    "sillyname": "^0.1.0",
+    "superheroes": "^4.0.0"
+  }
+}

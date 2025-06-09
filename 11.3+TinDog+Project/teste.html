@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Bem Estar | Saúde e Confiança</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(0, 123, 255, 0.05), rgba(0, 123, 255, 0.05)), url('https://placehold.co/1920x800/E0F2FE/0EA5E9?text=Ambiente+Acolhedor+da+Clínica') no-repeat center center;
+            background-size: cover;
+        }
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .service-card, .professional-card, .testimonial-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover, .professional-card:hover, .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #0EA5E9; /* Cor azul claro, pode ajustar */
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+        /* Estilo para o modal de mensagem */
+        .modal {
+            display: none; /* Escondido por padrão */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .modal-close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .modal-close-button:hover,
+        .modal-close-button:focus {
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-sky-600">
+                <i class="fas fa-clinic-medical mr-2"></i>Clínica Bem Estar
+            </a>
+            <div class="hidden md:flex space-x-4">
+                <a href="#inicio" class="text-gray-600 hover:text-sky-600 px-3 py-2 rounded-md">Início</a>
+                <a href="#sobre" class="text-gray-600 hover:text-sky-600 px-3 py-2 rounded-md">Sobre Nós</a>
+                <a href="#profissionais" class="text-gray-600 hover:text-sky-600 px-3 py-2 rounded-md">Profissionais</a>
+                <a href="#servicos" class="text-gray-600 hover:text-sky-600 px-3 py-2 rounded-md">Serviços</a>
+                <a href="#convenios" class="text-gray-600 hover:text-sky-600 px-3 py-2 rounded-md">Convênios</a>
+                <a href="#contato" class="text-gray-600 hover:text-sky-600 px-3 py-2 rounded-md">Contato</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <i class="fas fa-bars fa-lg"></i>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+            <a href="#inicio" class="block text-gray-600 hover:bg-sky-50 px-4 py-2">Início</a>
+            <a href="#sobre" class="block text-gray-600 hover:bg-sky-50 px-4 py-2">Sobre Nós</a>
+            <a href="#profissionais" class="block text-gray-600 hover:bg-sky-50 px-4 py-2">Profissionais</a>
+            <a href="#servicos" class="block text-gray-600 hover:bg-sky-50 px-4 py-2">Serviços</a>
+            <a href="#convenios" class="block text-gray-600 hover:bg-sky-50 px-4 py-2">Convênios</a>
+            <a href="#contato" class="block text-gray-600 hover:bg-sky-50 px-4 py-2">Contato</a>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero-bg py-20 md:py-32">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-sky-700 mb-6 leading-tight">
+                Cuidando da sua saúde com <span class="text-sky-500">excelência e carinho</span>.
+            </h1>
+            <p class="text-lg md:text-xl text-gray-700 mb-10 max-w-2xl mx-auto">
+                Na Clínica Bem Estar, unimos tecnologia de ponta e atendimento humanizado para oferecer o melhor cuidado para você e sua família.
+            </p>
+            <a href="#contato" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-4 px-10 rounded-lg text-lg cta-button shadow-lg">
+                <i class="fas fa-calendar-alt mr-2"></i>Agende sua Consulta
+            </a>
+        </div>
+    </section>
+
+    <section id="sobre" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-sky-700 mb-12 section-title">Sobre Nossa Clínica</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-10">
+                    <img src="https://placehold.co/600x400/E0F2FE/0EA5E9?text=Recepção+Moderna" alt="Recepção da Clínica Bem Estar" class="rounded-lg shadow-xl w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <p class="text-gray-700 mb-4 text-lg leading-relaxed">
+                        Fundada com a missão de proporcionar um atendimento médico de alta qualidade e acessível, a Clínica Bem Estar se destaca pelo corpo clínico qualificado e pela infraestrutura moderna. Nosso foco é no bem-estar integral do paciente, desde a prevenção até o tratamento.
+                    </p>
+                    <p class="text-gray-700 mb-4 text-lg leading-relaxed">
+                        Valorizamos a relação médico-paciente, baseada na confiança, ética e empatia. Acreditamos que um ambiente acolhedor e um atendimento atencioso são fundamentais para uma recuperação eficaz e para a promoção da saúde.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2 text-lg">
+                        <li><i class="fas fa-check-circle text-sky-500 mr-2"></i>Atendimento humanizado e personalizado.</li>
+                        <li><i class="fas fa-microscope text-sky-500 mr-2"></i>Equipamentos de última geração.</li>
+                        <li><i class="fas fa-heartbeat text-sky-500 mr-2"></i>Foco na prevenção e diagnóstico precoce.</li>
+                        <li><i class="fas fa-map-marker-alt text-sky-500 mr-2"></i>Localização privilegiada e de fácil acesso.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="profissionais" class="py-16 md:py-24 bg-sky-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-sky-700 mb-16 section-title">Nossos Especialistas</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="bg-white p-6 rounded-lg shadow-lg professional-card text-center">
+                    <img src="https://placehold.co/200x200/C7D2FE/4F46E5?text=Dr.+Ana+Silva" alt="Foto do Dr. Ana Silva" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-sky-200">
+                    <h3 class="text-xl font-bold text-sky-700 mb-1">Dr. Ana Silva</h3>
+                    <p class="text-sky-600 font-semibold mb-2">Cardiologista</p>
+                    <p class="text-gray-600 text-sm">CRM: 12345-SP</p>
+                    <p class="text-gray-700 mt-3 text-sm leading-relaxed">
+                        Especialista em prevenção e tratamento de doenças cardiovasculares, com foco em check-ups e acompanhamento de pacientes crônicos.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg professional-card text-center">
+                    <img src="https://placehold.co/200x200/C7D2FE/4F46E5?text=Dr.+Carlos+Lima" alt="Foto do Dr. Carlos Lima" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-sky-200">
+                    <h3 class="text-xl font-bold text-sky-700 mb-1">Dr. Carlos Lima</h3>
+                    <p class="text-sky-600 font-semibold mb-2">Dermatologista</p>
+                    <p class="text-gray-600 text-sm">CRM: 67890-SP</p>
+                    <p class="text-gray-700 mt-3 text-sm leading-relaxed">
+                        Vasta experiência em dermatologia clínica e estética, tratando desde acne e alergias até procedimentos de rejuvenescimento.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg professional-card text-center">
+                    <img src="https://placehold.co/200x200/C7D2FE/4F46E5?text=Dra.+Beatriz+Costa" alt="Foto da Dra. Beatriz Costa" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-sky-200">
+                    <h3 class="text-xl font-bold text-sky-700 mb-1">Dra. Beatriz Costa</h3>
+                    <p class="text-sky-600 font-semibold mb-2">Pediatra</p>
+                    <p class="text-gray-600 text-sm">CRM: 11223-SP</p>
+                    <p class="text-gray-700 mt-3 text-sm leading-relaxed">
+                        Dedica-se ao cuidado integral da saúde infantil, desde o nascimento até a adolescência, com foco em crescimento e desenvolvimento.
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                 <a href="#contato" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-8 rounded-lg text-md cta-button">
+                    Conheça todos os especialistas
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-sky-700 mb-16 section-title">Serviços Oferecidos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="bg-sky-50 p-8 rounded-lg shadow-lg service-card">
+                    <div class="text-sky-500 text-4xl mb-4"><i class="fas fa-heart-pulse"></i></div>
+                    <h3 class="text-2xl font-bold text-sky-700 mb-3">Cardiologia Completa</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Consultas, exames como Eletrocardiograma e MAPA, acompanhamento preventivo e tratamento de doenças cardíacas.
+                    </p>
+                </div>
+                <div class="bg-sky-50 p-8 rounded-lg shadow-lg service-card">
+                    <div class="text-sky-500 text-4xl mb-4"><i class="fas fa-user-md"></i></div>
+                    <h3 class="text-2xl font-bold text-sky-700 mb-3">Clínica Geral</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Atendimento primário, check-ups anuais, diagnóstico e tratamento de doenças comuns, encaminhamento para especialistas.
+                    </p>
+                </div>
+                <div class="bg-sky-50 p-8 rounded-lg shadow-lg service-card">
+                    <div class="text-sky-500 text-4xl mb-4"><i class="fas fa-baby"></i></div>
+                    <h3 class="text-2xl font-bold text-sky-700 mb-3">Pediatria Especializada</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Acompanhamento do desenvolvimento infantil, vacinação, puericultura e tratamento de doenças da infância.
+                    </p>
+                </div>
+                <div class="bg-sky-50 p-8 rounded-lg shadow-lg service-card">
+                    <div class="text-sky-500 text-4xl mb-4"><i class="fas fa-allergies"></i></div> <h3 class="text-2xl font-bold text-sky-700 mb-3">Dermatologia</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Tratamento de doenças da pele, cabelos e unhas, além de procedimentos estéticos e preventivos.
+                    </p>
+                </div>
+                 <div class="bg-sky-50 p-8 rounded-lg shadow-lg service-card">
+                    <div class="text-sky-500 text-4xl mb-4"><i class="fas fa-x-ray"></i></div>
+                    <h3 class="text-2xl font-bold text-sky-700 mb-3">Exames Diagnósticos</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Realizamos diversos exames como ultrassonografia, exames laboratoriais e outros, com rapidez e precisão.
+                    </p>
+                </div>
+                 <div class="bg-sky-50 p-8 rounded-lg shadow-lg service-card">
+                    <div class="text-sky-500 text-4xl mb-4"><i class="fas fa-brain"></i></div>
+                    <h3 class="text-2xl font-bold text-sky-700 mb-3">Psicologia</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Apoio psicológico para diversas faixas etárias, terapia individual, de casal e familiar, visando o bem-estar mental.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="convenios" class="py-16 md:py-24 bg-sky-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-sky-700 mb-12 section-title">Convênios Atendidos</h2>
+            <p class="text-center text-gray-700 mb-10 max-w-xl mx-auto text-lg">
+                Facilitamos seu acesso à saúde de qualidade. Confira alguns dos convênios que aceitamos:
+            </p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center">
+                <img src="https://placehold.co/150x80/FFFFFF/CCCCCC?text=Convênio+A" alt="Logo Convênio A" class="mx-auto h-16 filter grayscale hover:grayscale-0 transition-all duration-300">
+                <img src="https://placehold.co/150x80/FFFFFF/CCCCCC?text=Convênio+B" alt="Logo Convênio B" class="mx-auto h-16 filter grayscale hover:grayscale-0 transition-all duration-300">
+                <img src="https://placehold.co/150x80/FFFFFF/CCCCCC?text=Convênio+C" alt="Logo Convênio C" class="mx-auto h-16 filter grayscale hover:grayscale-0 transition-all duration-300">
+                <img src="https://placehold.co/150x80/FFFFFF/CCCCCC?text=Convênio+D" alt="Logo Convênio D" class="mx-auto h-16 filter grayscale hover:grayscale-0 transition-all duration-300">
+                <img src="https://placehold.co/150x80/FFFFFF/CCCCCC?text=Convênio+E" alt="Logo Convênio E" class="mx-auto h-16 filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+            <p class="text-center text-gray-600 mt-10 text-md">
+                Entre em contato para confirmar a cobertura do seu plano específico.
+            </p>
+        </div>
+    </section>
+
+    <section id="depoimentos" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-sky-700 mb-16 section-title">O que nossos pacientes dizem</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="bg-sky-50 p-8 rounded-lg shadow-lg testimonial-card">
+                    <p class="text-gray-700 italic mb-4 leading-relaxed">"Fui muito bem atendido na Clínica Bem Estar. Desde a recepção até o Dr. Silva, todos foram extremamente atenciosos e profissionais. Recomendo!"</p>
+                    <p class="font-bold text-sky-600">- João P., Paciente</p>
+                </div>
+                <div class="bg-sky-50 p-8 rounded-lg shadow-lg testimonial-card">
+                    <p class="text-gray-700 italic mb-4 leading-relaxed">"A Dra. Beatriz é uma pediatra maravilhosa! Cuidou do meu filho com tanto carinho e paciência. A clínica é limpa e organizada."</p>
+                    <p class="font-bold text-sky-600">- Maria S., Mãe de Paciente</p>
+                </div>
+                <div class="bg-sky-50 p-8 rounded-lg shadow-lg testimonial-card">
+                    <p class="text-gray-700 italic mb-4 leading-relaxed">"Encontrei na Clínica Bem Estar a solução para meu problema de pele que me incomodava há anos. O Dr. Carlos foi muito competente."</p>
+                    <p class="font-bold text-sky-600">- Roberto A., Paciente</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="py-16 md:py-24 bg-sky-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-sky-700 mb-12 section-title">Entre em Contato</h2>
+            <div class="flex flex-col lg:flex-row gap-10">
+                <div class="lg:w-1/2 bg-white p-8 rounded-lg shadow-xl">
+                    <h3 class="text-2xl font-bold text-sky-700 mb-6">Envie uma Mensagem</h3>
+                    <form id="contactForm">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-semibold mb-2">Nome Completo</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-sky-500 focus:border-sky-500" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-semibold mb-2">E-mail</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-sky-500 focus:border-sky-500" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="phone" class="block text-gray-700 font-semibold mb-2">Telefone</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-sky-500 focus:border-sky-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 font-semibold mb-2">Sua Mensagem</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-sky-500 focus:border-sky-500" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-6 rounded-lg cta-button">
+                            <i class="fas fa-paper-plane mr-2"></i>Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="bg-white p-8 rounded-lg shadow-xl mb-8">
+                        <h3 class="text-2xl font-bold text-sky-700 mb-6">Nossas Informações</h3>
+                        <p class="text-gray-700 mb-3 text-lg"><i class="fas fa-map-marker-alt text-sky-500 mr-3"></i>Rua das Palmeiras, 123 - Centro, Aracaju - SE</p>
+                        <p class="text-gray-700 mb-3 text-lg"><i class="fas fa-phone-alt text-sky-500 mr-3"></i>(79) 3000-0000</p>
+                        <p class="text-gray-700 mb-3 text-lg"><i class="fab fa-whatsapp text-sky-500 mr-3"></i>(79) 99999-0000 (WhatsApp)</p>
+                        <p class="text-gray-700 mb-3 text-lg"><i class="fas fa-envelope text-sky-500 mr-3"></i>contato@clinicabemestar.com.br</p>
+                        <p class="text-gray-700 text-lg"><i class="fas fa-clock text-sky-500 mr-3"></i>Seg - Sex: 8h às 18h | Sáb: 8h às 12h</p>
+                    </div>
+                    <div>
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125327.31002077537!2d-37.12985061971909!3d-10.948109951081238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x71ab3b782550669%3A0x90858650a8964250!2sAracaju%2C%20SE!5e0!3m2!1spt-BR!2sbr!4v1678886543210!5m2!1spt-BR!2sbr" 
+                            width="100%" 
+                            height="300" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="rounded-lg shadow-xl">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-sky-700 text-sky-100 py-10">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-4">
+                <a href="#" class="text-sky-100 hover:text-white mx-2"><i class="fab fa-facebook-f fa-lg"></i></a>
+                <a href="#" class="text-sky-100 hover:text-white mx-2"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="#" class="text-sky-100 hover:text-white mx-2"><i class="fab fa-linkedin-in fa-lg"></i></a>
+            </div>
+            <p>&copy; <span id="currentYear"></span> Clínica Bem Estar. Todos os direitos reservados.</p>
+            <p class="text-sm mt-1">Desenvolvido com <i class="fas fa-heart text-red-400"></i> para sua saúde.</p>
+        </div>
+    </footer>
+
+    <div id="messageModal" class="modal">
+        <div class="modal-content">
+            <span id="modalCloseButton" class="modal-close-button">&times;</span>
+            <p id="modalMessageText" class="text-lg"></p>
+        </div>
+    </div>
+
+
+    <script>
+        // Menu Mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Fechar menu mobile ao clicar em um link
+        const mobileLinks = mobileMenu.getElementsByTagName('a');
+        for (let link of mobileLinks) {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        }
+        
+        // Smooth scroll para âncoras
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Ano atual no rodapé
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Modal
+        const messageModal = document.getElementById('messageModal');
+        const modalMessageText = document.getElementById('modalMessageText');
+        const modalCloseButton = document.getElementById('modalCloseButton');
+
+        function showModal(message) {
+            modalMessageText.textContent = message;
+            messageModal.style.display = 'flex'; // Mudar para flex para centralizar
+        }
+
+        modalCloseButton.onclick = function() {
+            messageModal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == messageModal) {
+                messageModal.style.display = 'none';
+            }
+        }
+
+        // Simulação de envio de formulário de contato
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio real do formulário
+            
+            // Validação simples (pode ser mais robusta)
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
+                showModal('Por favor, preencha todos os campos obrigatórios.');
+                return;
+            }
+            
+            // Simula o envio
+            setTimeout(() => {
+                showModal('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+                contactForm.reset(); // Limpa o formulário
+            }, 1000);
+        });
+
+    </script>
+
+</body>
+</html>

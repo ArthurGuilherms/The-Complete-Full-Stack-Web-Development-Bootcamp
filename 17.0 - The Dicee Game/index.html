@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Dicee Game</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Luckiest+Guy&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@400;700&family=Luckiest+Guy&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/matter-js@0.19.0/build/matter.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>The Dicee Game</h1>
+      <p>Roll the dice and see who wins!</p>
+    </header>
+    <div id="physics-dice-container"></div>
+    <div id="dice-container">
+      <p>Player 1</p>
+      <p>Player 2</p>
+      <div id="dice1" class="dice one">
+        <div class="dot"></div>
+      </div>
+      <div id="dice2" class="dice one">
+        <div class="dot"></div>
+      </div>
+    </div>
+    <button id="roll-button">Roll Dice</button>
+    <script src="script.js"></script>
+  </body>
+</html>

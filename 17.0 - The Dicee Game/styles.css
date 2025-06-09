@@ -1,0 +1,275 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #333333;
+  margin: 0;
+  padding: 0;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  font-size: 1.5rem;
+  font-family: "Luckiest Guy", cursive, "Courier New", Courier, monospace;
+  margin-top: 100px;
+  margin-bottom: 8%;
+}
+
+h1 {
+  color: #6ba848;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  font-size: 6rem;
+  font-family: "Luckiest Guy", cursive, "Courier New", Courier, monospace;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 0 #222, 4px 4px 0 #fff2;
+}
+
+p {
+  color: #ffffff;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+/* Nomes dos jogadores estilizados */
+#dice-container p {
+  font-family: "Dancing Script", cursive, Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #b6f87f;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  margin-top: 0;
+  text-shadow: 1px 1px 0 #222;
+  user-select: none; /* Impede seleção/cópia */
+  pointer-events: none; /* Impede clique */
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+#dice-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 40px;
+  align-items: center;
+  justify-items: center;
+  margin-bottom: 30px;
+}
+
+#dice-container p {
+  grid-column: span 1;
+  margin-bottom: 10px;
+}
+
+#roll-button {
+  margin-bottom: 40px;
+}
+
+.dice {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  border: 2px solid #333;
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+}
+
+.dot {
+  width: 22px;
+  height: 22px;
+  background: white;
+  border-radius: 50%;
+  margin: auto;
+}
+
+/* Dado 1 */
+.dice.one .dot:nth-child(1) {
+  grid-row: 2;
+  grid-column: 2;
+}
+
+/* Dado 2 */
+.dice.two .dot:nth-child(1) {
+  grid-row: 1;
+  grid-column: 1;
+}
+.dice.two .dot:nth-child(2) {
+  grid-row: 3;
+  grid-column: 3;
+}
+
+/* Dado 3 */
+.dice.three .dot:nth-child(1) {
+  grid-row: 1;
+  grid-column: 1;
+}
+.dice.three .dot:nth-child(2) {
+  grid-row: 2;
+  grid-column: 2;
+}
+.dice.three .dot:nth-child(3) {
+  grid-row: 3;
+  grid-column: 3;
+}
+
+/* Dado 4 */
+.dice.four .dot:nth-child(1) {
+  grid-row: 1;
+  grid-column: 1;
+}
+.dice.four .dot:nth-child(2) {
+  grid-row: 1;
+  grid-column: 3;
+}
+.dice.four .dot:nth-child(3) {
+  grid-row: 3;
+  grid-column: 1;
+}
+.dice.four .dot:nth-child(4) {
+  grid-row: 3;
+  grid-column: 3;
+}
+
+/* Dado 5 */
+.dice.five .dot:nth-child(1) {
+  grid-row: 1;
+  grid-column: 1;
+}
+.dice.five .dot:nth-child(2) {
+  grid-row: 1;
+  grid-column: 3;
+}
+.dice.five .dot:nth-child(3) {
+  grid-row: 2;
+  grid-column: 2;
+}
+.dice.five .dot:nth-child(4) {
+  grid-row: 3;
+  grid-column: 1;
+}
+.dice.five .dot:nth-child(5) {
+  grid-row: 3;
+  grid-column: 3;
+}
+
+/* Dado 6 */
+.dice.six .dot:nth-child(1) {
+  grid-row: 1;
+  grid-column: 1;
+}
+.dice.six .dot:nth-child(2) {
+  grid-row: 1;
+  grid-column: 3;
+}
+.dice.six .dot:nth-child(3) {
+  grid-row: 2;
+  grid-column: 1;
+}
+.dice.six .dot:nth-child(4) {
+  grid-row: 2;
+  grid-column: 3;
+}
+.dice.six .dot:nth-child(5) {
+  grid-row: 3;
+  grid-column: 1;
+}
+.dice.six .dot:nth-child(6) {
+  grid-row: 3;
+  grid-column: 3;
+}
+
+@keyframes roll3d {
+  0% {
+    transform: perspective(300px) rotateY(0deg);
+  }
+  25% {
+    transform: perspective(300px) rotateY(90deg);
+  }
+  50% {
+    transform: perspective(300px) rotateY(180deg);
+  }
+  75% {
+    transform: perspective(300px) rotateY(270deg);
+  }
+  100% {
+    transform: perspective(300px) rotateY(360deg);
+  }
+}
+
+.dice.rolling {
+  animation: roll3d 0.8s;
+  backface-visibility: hidden;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-8px);
+  }
+  40% {
+    transform: translateX(8px);
+  }
+  60% {
+    transform: translateX(-6px);
+  }
+  80% {
+    transform: translateX(6px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.dice.shake {
+  animation: shake 0.4s;
+}
+
+#physics-dice-container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
+
+#physics-dice-container canvas {
+  width: 100vw !important;
+  height: 100vh !important;
+  display: block;
+  background: #222 !important;
+  box-shadow: 0 0 40px #0008;
+}
+
+body > *:not(#physics-dice-container) {
+  position: relative;
+  z-index: 1;
+}

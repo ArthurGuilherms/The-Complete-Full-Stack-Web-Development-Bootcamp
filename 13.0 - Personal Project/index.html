@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arthur Guilherme - Desenvolvedor</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1></i> Arthur Guilherme</h1>
+        <nav>
+          <ul>
+            <li>
+              <a href="#sobre"> Sobre Mim</a>
+            </li>
+            <li>
+              <a href="#habilidades"> Habilidades</a>
+            </li>
+            <li>
+              <a href="#experiencia"> Experiência</a>
+            </li>
+            <li>
+              <a href="#projetos"> Projetos</a>
+            </li>
+            <li>
+              <a href="#contato"> Contato</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="hero" class="hero">
+        <div class="container">
+          <img
+            src="profile.jpg"
+            alt="Foto de Arthur Guilherme"
+            class="profile-pic"
+          />
+          <h2>Olá, sou Arthur Guilherme, um Desenvolvedor!</h2>
+          <p>Apaixonado por criar soluções web inovadoras e eficientes.</p>
+          <a href="#contato" class="button">Entre em Contato</a>
+        </div>
+      </section>
+
+      <section id="sobre" class="section">
+        <div class="container">
+          <h2>Sobre Mim</h2>
+          <p>
+            Olá! Sou Arthur Guilherme, um desenvolvedor web com foco em criar
+            experiências digitais intuitivas e funcionais. Tenho experiência em
+            desenvolvimento front-end, transformando ideias em interfaces de
+            usuário atraentes e responsivas.
+          </p>
+          <p>
+            Minha paixão por tecnologia me impulsiona a aprender e me aprimorar
+            constantemente, buscando sempre as melhores práticas e as
+            ferramentas mais recentes para entregar projetos de alta qualidade.
+          </p>
+        </div>
+      </section>
+
+      <section id="habilidades" class="section bg-light">
+        <div class="container">
+          <h2>Habilidades</h2>
+          <div class="skills-grid">
+            <div class="skill-item">HTML5</div>
+            <div class="skill-item">CSS3</div>
+            <div class="skill-item">Design Responsivo</div>
+            <div class="skill-item">Controle de Versão (Git)</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experiencia" class="section">
+        <div class="container">
+          <h2>Experiência</h2>
+          <div class="experience-item">
+            <h3>Desenvolvedor Front-end Júnior</h3>
+            <p>Empresa XYZ - Cidade, Estado | Jan 2023 - Presente</p>
+            <ul>
+              <li>
+                Desenvolvimento e manutenção de interfaces de usuário utilizando
+                HTML e CSS.
+              </li>
+              <li>
+                Criação de layouts responsivos para diversos dispositivos.
+              </li>
+              <li>
+                Colaboração com equipes de design para implementar soluções
+                visuais.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="projetos" class="section bg-light">
+        <div class="container">
+          <h2>Projetos</h2>
+          <div class="projects-grid">
+            <div class="project-card">
+              <img src="project1.jpg" alt="Projeto 1" />
+              <h3>Vitrine Virtual</h3>
+              <p>
+                Um site de E-commerce criado com Wordpress e Woocomerce. Sua
+                interface é moderna e responsiva, proporcionando uma ótima
+                experiência de compra. Conectado a plataformas de pagamento
+                facilitadas, oferece uma jornada de compra intuitiva e segura.
+                Venha conferir!
+              </p>
+              <a href="#" target="_blank" class="button button-small"
+                >Ver Projeto</a
+              >
+            </div>
+            <div class="project-card">
+              <img src="project2.jpg" alt="Projeto 2" />
+              <h3>Aura - IA de Suporte Emocional</h3>
+              <p>
+                Um assistente virtual desenvolvido com tecnologias de IA para
+                ajudar usuários a gerenciar suas emoções e bem-estar. A Aura
+                muda as expressões faciais de acordo com o estado emocional do
+                usuário, proporcionando uma interação mais empática e
+                personalizada.
+              </p>
+              <a href="#" target="_blank" class="button button-small"
+                >Ver Projeto</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contato" class="section">
+        <div class="container">
+          <h2>Entre em Contato</h2>
+          <p>
+            Estou sempre aberto a novas oportunidades e colaborações. Sinta-se à
+            vontade para me enviar uma mensagem!
+          </p>
+          <form action="#" method="POST">
+            <div class="form-group">
+              <label for="name">Nome:</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Mensagem:</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="button">Enviar Mensagem</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Arthur Guilherme. Todos os direitos reservados.</p>
+        <div class="social-links">
+          <a href="#" target="_blank">LinkedIn</a>
+          <a href="#" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
