@@ -1,0 +1,69 @@
+body {
+  background: #222;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
+    helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+  color: hotpink;
+}
+
+.rainbow-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(
+    90deg,
+    rgb(255, 0, 204),
+    rgb(212, 0, 255),
+    rgb(234, 0, 255),
+    rgb(211, 32, 228),
+    rgb(170, 0, 255),
+    rgb(255, 0, 132),
+    violet,
+    rgb(255, 0, 136)
+  );
+  background-size: 400% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow 10s linear infinite;
+  text-align: center;
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+input {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  font-size: 0.9rem;
+  background: #888;
+  padding: 1rem;
+  color: white;
+  cursor: pointer;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+}
