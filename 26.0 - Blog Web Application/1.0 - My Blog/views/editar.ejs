@@ -1,0 +1,29 @@
+<%- include("partials/header") %>
+
+<main>
+  
+  <div class="centralizer">
+    
+    <div class="container">
+      <h1>Editar Postagem</h1>
+
+      <form action="/editar/<%= post.id %>" method="POST">
+        <input type="text" name="titulo" value="<%= post.titulo %>" required>
+        <textarea name="conteudo" required><%= post.conteudo %></textarea>
+
+        <div class="botoes-container"> 
+          <button type="submit" class="botoes-container salvar">Salvar</button>
+
+          <a href="/"><button class="botoes-container voltar">Voltar
+          </button></a>
+
+        </div>
+      </form>
+    
+
+    </div>
+
+  </div>
+</main>
+
+<%- include("partials/footer") %>

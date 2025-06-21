@@ -1,0 +1,42 @@
+<%- include("partials/header") %>
+
+<div class="container">
+    <div class="main-layout">
+        
+        <main class="posts-list">
+            
+            <% if (posts.length > 0) {  
+                %>
+                
+                <h2 class="postagem">Postagens:</h2>
+                <div class="grid-container">
+                
+                    <% posts.forEach(function(post) { %>
+                        <div class="grid-item">
+                            <img src="<%= post.imagem %>" alt="Imagem do post">
+                            <h3><a href="/postagem/<%= post.id %>"><%= post.titulo %></a></h3>
+                            <p><%= post.conteudo.substring(0, 150) %>...</p> 
+                            <a href="/postagem/<%= post.id %>">Leia mais</a>
+                        </div>
+                    <% }); %>
+            <% } else { %>
+            <div class="no-posts">
+                <p>Nenhuma postagem disponível.</p>
+                </div>
+            <% } %>
+        </main>    
+    </div>
+
+    <div class="botton-container">
+        <aside class="sidebar">
+    
+            <ul>
+                <li><a href="/novo">Criar Postagem</a></li>
+            </ul>
+        </aside>
+
+    </div>
+
+</div>
+
+<%- include("partials/footer") %>

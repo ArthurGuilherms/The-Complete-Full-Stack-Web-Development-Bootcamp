@@ -1,0 +1,44 @@
+<%- include("partials/header") %>
+
+    <div class="container">
+        <main>
+            <article class="postagem-individual">
+
+                <div class="post-meta">
+                    Publicado em <%= new Date().toLocaleDateString('pt-BR', { day: '2-digit' , month: 'long' ,
+                        year: 'numeric' }) %>
+                </div>
+
+                <% if (post.imagem) { %>
+                    <img class="post-imagem-destaque" src="<%= post.imagem %>" alt="Imagem da postagem">
+                    <% } %>
+
+                    
+                    <div class="post-conteudo">
+                        <h1>
+                            <%= post.titulo %>
+                        </h1>
+    
+                            <p><%= post.conteudo %></p>
+
+                        </div>
+
+                        <div class="botoes-visualizacao">
+                            <a href="/editar/<%= post.id %>">
+                                <button class="botao-editar">Editar</button>
+                            </a>
+
+                            <form action="/apagar/<%= post.id %>" method="POST"
+                                onsubmit="return confirm('Tem certeza que deseja apagar esta postagem? Ela não poderá ser recuperada.');">
+                                <button type="submit" class="botao-apagar">Apagar</button>
+                            </form>
+
+                            <button class="botao-voltar">
+                                <a href="/">Voltar</a>
+                            </button>
+                        </div>
+            </article>
+        </main>
+    </div>
+
+    <%- include("partials/footer") %>

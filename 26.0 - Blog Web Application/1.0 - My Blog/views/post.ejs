@@ -1,0 +1,29 @@
+<%- include("partials/header") %>
+
+    <body>
+
+        <div class="centralizer">
+
+            <div class="post-container">
+                <h2>Criar nova postagem</h2>
+                <form action="/novo" method="POST" enctype="multipart/form-data">
+                    <input type="text" name="titulo" placeholder="Título do post" required>
+                    <textarea name="conteudo" placeholder="Conteúdo do post" required></textarea>
+                    <input type="file" name="imagem" accept="image/*" required>
+
+                    <div class="botoes-container">
+
+                        <button type="submit">Publicar</button>
+                        
+                        <button class="voltar-novo" type="button" onclick="window.location.href='/'">Voltar</button>
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+        </html>
+
+
+        <%- include("partials/footer") %>
