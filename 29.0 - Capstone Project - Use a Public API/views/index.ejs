@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Terremotos Recentes</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="titulo" id="titulo-topo"><h1>Terremotos no Mundo!</h1>
+      <h2>Nas ultimas 24 Horas</h2>
+    </div>
+    
+    <div class="container-container">
+      <div class="map-container">
+          <div id="map"></div>
+          <div id="detalhes-container">
+            <div id="detalhes"></div>
+          </div>
+      </div>
+    </div>
+
+    <div class="terremotos-container">
+  <div class="coluna">
+    <h2>Lista de Terremotos</h2>
+    <p><% terremotos.forEach((t, index) => { %>
+                <div class="item" onclick="mostrarDetalhes(<%= index %>)">
+                  <strong><%= t.lugar %></strong> — Magnitude: <%= t.magnitude %>
+                </div>
+              <% }) %></p>
+  </div>
+
+</div>
+
+
+  </div>
+
+ <script>
+  const terremotos = JSON.parse('<%- JSON.stringify(terremotos).replace(/'/g, "\\'") %>');
+</script>
+
+  <script src="/script.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=initMap" async defer></script>
+</body>
+</html>

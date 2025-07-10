@@ -1,0 +1,11 @@
+# Ignorar arquivo de variáveis de ambiente
+.env
+
+# Node modules (pasta com dependências)
+node_modules/
+
+# Logs
+*.log
+
+# Pastas temporárias
+tmp/
